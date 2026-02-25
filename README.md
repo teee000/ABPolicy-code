@@ -3,7 +3,7 @@
 [![Project Website](https://img.shields.io/badge/Project-Website-blue)](https://teee000.github.io/ABPolicy/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Official PyTorch implementation of the paper **"ABPolicy: An Asynchronous B-spline Flow Policy for Smooth and Responsive Robotic Manipulation"**. 
+Official PyTorch implementation of the paper **"ABPolicy: Asynchronous B-spline Flow Policy for Smooth and Responsive Robotic Manipulation"**. 
 
 ## 📖 Overview
 
