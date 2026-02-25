@@ -67,9 +67,9 @@ During inference on the real robot (Agilex Piper), the policy runs asynchronousl
 
 ```python
 # Example snippet of the inter-chunk refitting process
-from bspline_fitter import BSplineFitter
+from curve_fitter import BSplineFitter
 
-fitter = BSplineFitter(T=chunk_size, k=3, n_ctrl=8)
+fitter = BSplineFitter(T=32+8, k=3, n_ctrl=8)
 
 # refit_prefix_w ensures continuity with the previously executed actions
 # by optimizing the first few control points of the newly predicted chunk
