@@ -23,7 +23,7 @@ Robotic manipulation requires policies that are temporally smooth and highly res
 
 **1. Clone the repository**
 ```bash
-git clone [https://github.com/teee000/ABPolicy-code.git](https://github.com/teee000/ABPolicy-code.git)
+git clone https://github.com/teee000/ABPolicy-code.git
 cd ABPolicy-code
 ```
 
@@ -85,13 +85,8 @@ smoothed_control_points = fitter.refit_prefix_w(
 smooth_trajectory, _ = fitter.rebuild(smoothed_control_points)
 ```
 
-## 🤖 Hardware Setup
-
-The experiments in the paper are conducted using the **Agilex Piper** robotic arm. 
-* **Action Space**: Absolute joint angles (6 DoF + Gripper).
-
-
 ## 🤝 Acknowledgments
 
+* **Action Space**: Absolute joint angles (6 DoF + Gripper).
 * **DINOv2**: We utilize DINOv2 for extracting robust visual features.
 * **Agilex Piper**: Hardware platform utilized for physical deployments.
