@@ -44,7 +44,7 @@ The dataset utilizes the `HDF5` format for efficient loading. The `HDF5Dataset` 
 
 Your dataset tree should look like this:
 ```text
-data/
+record_data/
 └── your_task_name/
     ├── episode_0.hdf5
     ├── episode_1.hdf5
