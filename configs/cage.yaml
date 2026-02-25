@@ -1,0 +1,85 @@
+
+out_dir: ./outputs/train/cage
+model_save_epoch: 10
+
+
+qpos_obs_horizon: 8
+img_obs_horizon: 1
+action_history_horizon: 8
+action_horizon: 32
+execute_action_horizon: 16
+
+infer_loop_num: 45
+
+use_bspline_flag: true
+b_spline_ctrl_n: 8
+b_spline_k: 3
+
+action_dim: 7
+
+dataset:
+  meta_data:
+    in_hand_views: 0
+    fixed_views: 1
+  preprocess:
+    img_crop: [480, 480]
+    img_size: 224
+    img_patch_size: 14 
+  num_workers: 16
+
+epoch: 240
+batch_size: 256
+gradient_accumulation_steps: 1  # calculated by target batchsize / (batchsize * num of GPUs)
+
+warmup_steps: 100
+
+learning_rate: 1e-4   
+learning_rate_perceiver: 1e-4 
+betas: [0.9,0.99]
+betas_perceiver: [0.9,0.99]
+weight_decay: 0
+lr_scheduler: cosine  # constant/cosine/cosine_with_restarts
+lr_cycles: 0.5        # to have lr->0 at the end, cosine: x.5, cosine_with_restarts: x
+warm_up_steps: 500
+
+gradient_clipping: 1.
+checkpoint_steps: null
+
+
+qpos_noise_std: 0.01
+
+
+denoise_infer_steps: 10
+
+stats_scale_factor: 1.05
+
+jpg_encode_quality: 95
+
+image_backbone_used_layers: 8
+
+model:
+  name: attn_unet
+  obs_dim: 512
+  # model specific params are in model/name.yaml
+  
+  use_proprio: true # concatenate prev actions to noisy actions
+
+  use_perceiver: true
+  perceiver:
+    layers: 4
+    dropout: 0.1
+  
+  use_in_hand: true
+  use_fixed: true
+  image_encoder:
+    name: facebook/dinov2-base   #  facebook/dinov2-large    # resnet-50/dinov2-large
+    pooled: false         # true: B, 1, D; false: B, L, D
+    freeze: true
+    lr_ratio: 1.
+    use_lora: true
+    lora:
+      r: 16
+      alpha: 16
+      dropout: 0.1
+      bias: none        # none / lora_only
+      target_modules: ['query', 'key', 'value']
