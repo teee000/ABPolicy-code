@@ -1,4 +1,4 @@
-# ABPolicy: Asynchronous B-spline Flow Policy for Smooth and Responsive Robotic Manipulation
+# ABPolicy: Asynchronous B-Spline Flow Policy for Real-Time and Smooth Robotic Manipulation
 
 [![Project Website](https://img.shields.io/badge/Project-Website-blue)](https://teee000.github.io/ABPolicy/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
